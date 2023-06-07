@@ -603,7 +603,11 @@ public:
 		if (GetKey(L'D').bHeld)
 			fYaw += 2.0f * fElapsedTime;
 
+		if (GetKey(L'Q').bHeld)
+			fTheta += 1.0f * fElapsedTime;
 
+		if (GetKey(L'E').bHeld)
+			fTheta -= 1.0f * fElapsedTime;
 
 
 		// Set up "World Tranmsform" though not updating theta 
@@ -821,12 +825,12 @@ public:
 			// Draw the transformed, viewed, clipped, projected, sorted, clipped triangles
 			for (auto& t : listTriangles)
 			{
-				TexturedTriangle(t.p[0].x, t.p[0].y, t.t[0].u, t.t[0].v, t.t[0].w,
+				/*TexturedTriangle(t.p[0].x, t.p[0].y, t.t[0].u, t.t[0].v, t.t[0].w,
 					t.p[1].x, t.p[1].y, t.t[1].u, t.t[1].v, t.t[1].w,
-					t.p[2].x, t.p[2].y, t.t[2].u, t.t[2].v, t.t[2].w, sprTex1);
+					t.p[2].x, t.p[2].y, t.t[2].u, t.t[2].v, t.t[2].w, sprTex1);*/
 
-				//FillTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, t.sym, t.col);
-				DrawTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_WHITE);
+				FillTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_WHITE);
+				DrawTriangle(t.p[0].x, t.p[0].y, t.p[1].x, t.p[1].y, t.p[2].x, t.p[2].y, PIXEL_SOLID, FG_BLACK);
 			}
 		}
 
